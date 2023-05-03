@@ -2,6 +2,7 @@
 import React, { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 
 
@@ -35,8 +36,8 @@ const Login = () => {
     }
 
     return (
-          <div>
-          <div className="hero min-h-screen bg-base-200">
+          <div className='flex justify-center pb-24 bg-base-200 '>
+          <div className="hero min-h-screen pl-56">
   <div className="hero-content flex-col ">
     <div className="text-center ">
       <h1 className="text-5xl font-bold text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text">Login now!</h1>
@@ -65,6 +66,9 @@ const Login = () => {
       </div>
     </div>
   </div>
+</div>
+<div className='bg-base-200 mx-auto pr-56 pt-44'> 
+  <div className='w-72 mx-auto'><SocialLogin></SocialLogin></div>
 </div>
 </div>
     );

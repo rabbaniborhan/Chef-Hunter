@@ -3,6 +3,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 
 
@@ -11,7 +12,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 
 const Register = () => {
     // eslint-disable-next-line no-unused-vars
-    const {createUser} = useContext(AuthContext)
+    const {createUser,loading,profileUpdate,} = useContext(AuthContext)
 
     const [email,setEmail] = useState("")
     const [password,setPassword]= useState("")
@@ -23,9 +24,6 @@ const Register = () => {
         event.preventDefault();
            setError('')
        
-
-
-
         if((name, email,password, photo)){
             createUser(email,password)
             .then((result) => {
@@ -34,13 +32,26 @@ const Register = () => {
               .catch((err) => {
                 console.log(err.message);
               });
+
+              profileUpdate(name,photo)
+              .then((result)=>{
+                console.log(result.user);
+              })
+              .catch((err) => {
+                console.log(err.message);
+              });
+
           }
 
     }
 
+
     return (
-        <div>
-            <div className="hero min-h-screen bg-base-200">
+        <div className='flex justify-center pb-24 bg-base-200 '>
+          {
+            loading && <div className='mx-auto text-2xl font-bold'> Loading</div>
+          }
+            <div className="hero min-h-screen pl-56">
   <div className="hero-content flex-col ">
     <div className="text-center ">
       <h1 className="text-5xl font-bold text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text">SingUp now!</h1>
@@ -82,6 +93,10 @@ const Register = () => {
     </div>
   </div>
 </div>
+<div className='bg-base-200 mx-auto pr-56 pt-56'> 
+  <div className='w-72 mx-auto'><SocialLogin></SocialLogin></div>
+</div>
+
         </div>
     );
 };
