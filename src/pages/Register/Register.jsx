@@ -17,9 +17,15 @@ const Register = () => {
     const [password,setPassword]= useState("")
     const [name,setName] = useState("")
     const [photo, setPhoto] = useState("")
+    const [error, setError] = useState("");
 
     const handleRegister = event =>{
         event.preventDefault();
+           setError('')
+       
+
+
+
         if((name, email,password, photo)){
             createUser(email,password)
             .then((result) => {
@@ -39,8 +45,9 @@ const Register = () => {
     <div className="text-center ">
       <h1 className="text-5xl font-bold text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text">SingUp now!</h1>
     </div>
-    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100" onSubmit={handleRegister}>
+    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <div className="card-body">
+        <p className='text-red-700'>{error}</p>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Name</span>
@@ -69,7 +76,7 @@ const Register = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary bg-gradient-to-r from-indigo-600 to-purple-600 outline-none bottom-0" type='submit' onClick={handleRegister}>Login</button>
+          <button className="btn btn-primary bg-gradient-to-r from-indigo-600 to-purple-600 outline-none bottom-0" type='submit' onClick={handleRegister}>register</button>
         </div>
       </div>
     </div>

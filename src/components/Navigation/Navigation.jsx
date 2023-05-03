@@ -2,8 +2,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/png-clipart-captain-cook-logo-logo-kitchen-cooking-graphic-designer-chef-knife-and-fork-style-text-chinese-style.png'
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Navigation = () => {
+
+
+    const {user}=useContext(AuthContext)
     return (
         <div>
             <div className="navbar bg-base-400  font-serif py-3 shadow-lg flex justify-around items-center text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text ">
@@ -17,7 +22,7 @@ const Navigation = () => {
                 <Link to ='/register' className='ml-4'>Sing Up</Link>
             </div>
             <div className="">
-             <h1>profile</h1>
+             
             </div>
             </div>
         </div>
