@@ -4,12 +4,16 @@ import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import LoginLayout from './../Layout/LoginLayout/LoginLayout';
 import Register from './../pages/Register/Register';
+import Blog from '../pages/Blog/Blog';
+import Errorpage from '../pages/Errorpage/Errorpage';
+import Chefdetails from '../pages/Chefdetails/Chefdetails';
 
 // eslint-disable-next-line no-unused-vars
 const router = createBrowserRouter([
     {
         path:'/',
-        element:<Home></Home>
+        element:<Home></Home>,
+        errorElement:<Errorpage></Errorpage>,
 
     },
 
@@ -25,6 +29,16 @@ const router = createBrowserRouter([
                 path:'register',
                 element:<Register></Register>,
             },
+            {
+                path:'blog',
+                element:<Blog></Blog>
+            },
+            {
+                path:"detaills/:id",
+                element:<Chefdetails></Chefdetails>
+
+            }
+
         ],
     }
 
