@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../../assets/png-clipart-captain-cook-logo-logo-kitchen-cooking-graphic-designer-chef-knife-and-fork-style-text-chinese-style.png'
+import { Link, NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Avatar from '../Avatar/Avatar';
@@ -24,9 +23,15 @@ const Navigation = () => {
                <Link to='/'> <h1 className=' italic font-bold text-4xl'>Chef <span className=' '>Hunter</span></h1></Link>
             </div>
             <div className=' flex justify text-lg font-medium'>
-                <Link to='/' className='ml-4'>Home</Link>
-                <Link to='blog ' className='ml-4'>Blog</Link>
-                <Link to ='/register' className='ml-4'>Sing Up</Link>
+                <NavLink to='/' className={isActive =>
+             (!isActive ?  "text-pink-700 ml-4" : " from-indigo-600 ml-4")
+  } >Home</NavLink>
+                <NavLink to='/blog '  className={isActive =>
+             (!isActive ?  "text-pink-700 ml-4" : " from-indigo-600 ml-4")
+  }>Blog</NavLink>
+                <NavLink to ='/register'  className={isActive =>
+             (!isActive ?  "text-pink-700 ml-4" : " from-indigo-600 ml-4")
+  }>Sing Up</NavLink>
             </div>
             <div className="">
 

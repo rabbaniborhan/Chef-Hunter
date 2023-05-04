@@ -10,7 +10,7 @@ const ChefService = ({service}) => {
     const{ picture,name,experience_years,likes
 // eslint-disable-next-line react/prop-types
 ,num_recipes ,id   }= service;
-    console.log(service);
+
 
     return (
         <div>

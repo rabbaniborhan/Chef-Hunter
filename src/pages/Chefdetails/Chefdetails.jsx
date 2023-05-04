@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AiFillLike } from "react-icons/ai";
+import Recipes from '../../components/Recipes/Recipes';
 
 const Chefdetails = () => {
 
@@ -17,8 +18,7 @@ const Chefdetails = () => {
     // console.log(chef);
     const{description,experience_years,likes,name,num_recipes,picture,recipes
     }=chef;
-    console.log(chef.picture);
-    
+   
    
     return (
         <div className='bg-base-100  my-24'>
@@ -36,6 +36,14 @@ const Chefdetails = () => {
      
    
   </div>
+</div>
+
+
+<div className='flex w-4/5 mx-auto my-20 justify-between'>
+    
+{
+    recipes?.map((recipe,index)=><Recipes recipe={recipe} key={index}></Recipes>)
+}
 </div>
           
         </div>

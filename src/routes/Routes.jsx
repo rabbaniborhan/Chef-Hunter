@@ -7,6 +7,7 @@ import Register from './../pages/Register/Register';
 import Blog from '../pages/Blog/Blog';
 import Errorpage from '../pages/Errorpage/Errorpage';
 import Chefdetails from '../pages/Chefdetails/Chefdetails';
+import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
 
 // eslint-disable-next-line no-unused-vars
 const router = createBrowserRouter([
@@ -35,8 +36,10 @@ const router = createBrowserRouter([
             },
             {
                 path:"detaills/:id",
-                element:<Chefdetails></Chefdetails>
-
+                element:<PrivateRoute> 
+                     <Chefdetails> 
+                     </Chefdetails>
+                </PrivateRoute>
             }
 
         ],
