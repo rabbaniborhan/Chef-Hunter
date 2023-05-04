@@ -24,7 +24,7 @@ const ChefService = ({service}) => {
     </div>
     <div className="flex items-center justify-end">
         <p className='flex items-center text-xl'><AiFillLike></AiFillLike>:{likes}</p>
-     <Link to={`/detaills/:${id}`}> <button className="btn btn-primary">View Details</button></Link>
+     <Link to={`/detaills/${id}`}> <button className="btn btn-primary">View Details</button></Link>
     </div>
   </div>
 </div>

@@ -19,29 +19,52 @@ const Register = () => {
     const [name,setName] = useState("")
     const [photo, setPhoto] = useState("")
     const [error, setError] = useState("");
+    const [success ,setSuccess]= useState("")
 
     const handleRegister = event =>{
         event.preventDefault();
            setError('')
+           setSuccess("")
+
+
+           
+         if (!/(?=.*[0-9].*[0-9])/.test(password)) {
+            setError('Please add at least two numbers');
+            return
+        }
+        else if (password.length < 6) {
+            setError('Please add at least 6 characters in your password')
+            return;
+        }
        
+
+
         if((name, email,password, photo)){
             createUser(email,password)
             .then((result) => {
                 console.log(result.user);
+                setSuccess("successfully  singup")
+                profileUpdate(name,photo)
+              .then(()=>{
+                
+              })
+              .catch((err) => {
+                console.log(err.message);
+              });
               })
               .catch((err) => {
                 console.log(err.message);
               });
 
-              profileUpdate(name,photo)
-              .then((result)=>{
-                console.log(result.user);
-              })
-              .catch((err) => {
-                console.log(err.message);
-              });
+              
 
           }
+          else {
+            setError('please input feild fillup')
+
+          }
+
+    
 
     }
 
@@ -59,6 +82,7 @@ const Register = () => {
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <div className="card-body">
         <p className='text-red-700'>{error}</p>
+        <p className='text-green-700'>{success}</p>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Name</span>

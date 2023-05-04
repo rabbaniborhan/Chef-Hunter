@@ -28,7 +28,7 @@ const Home = () => {
             <Navigation></Navigation>
             <Banner></Banner>
             <hr className='border border-blue-700 w-4/5 mx-auto mt-20'/>
-             <div className='w-4/5 mx-auto grid grid-cols-3 my-32 gap-4'>
+             <div className='w-4/5 mx-auto grid grid-cols-1 lg:grid-cols-3 my-32 gap-4'>
              {servicesData.map(service=><ChefService service={service}key={service.id}></ChefService>)}
              </div>
             <Footer></Footer>
