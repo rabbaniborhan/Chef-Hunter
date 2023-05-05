@@ -7,7 +7,7 @@ import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 
 const Login = () => {
-  const {login,loading} = useContext(AuthContext)
+  const {login,lo} = useContext(AuthContext)
   const [email,setEmail]= useState("");
   const [password,setPassword]= useState("");
   const [error,setError] = useState("")
@@ -54,9 +54,7 @@ const Login = () => {
     return (
 
           <div className='flex justify-center pb-24 bg-base-200 '>
-             {
-            loading && <div><progress className="progress w-56 mx-auto progress-secondary"></progress><div className='mx-auto text-2xl font-bold'> Loading</div> </div>
-          }
+            
           <div className="hero min-h-screen pl-56">
   <div className="hero-content flex-col ">
     <div className="text-center ">

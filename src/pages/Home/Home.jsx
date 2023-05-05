@@ -22,15 +22,15 @@ const Home = () => {
 
 
 
-  console.log(servicesData);
-    
+  
 
 
     return (
-        <div>
+        <div className='relative'>
             <Navigation></Navigation>
              {
-            loading && <div><progress className="progress w-56 mx-auto progress-secondary"></progress><div className='mx-auto text-2xl font-bold'> Loading</div> </div>
+            loading && <div className=' absolute left-1/2'><progress className="progress w-56 mx-auto progress-secondary"></progress><div className='mx-auto text- 
+             2xl font-bold'> Loading</div> </div>
           }
             <Banner></Banner>
             <hr className='border border-blue-700 w-4/5 mx-auto mt-20'/>

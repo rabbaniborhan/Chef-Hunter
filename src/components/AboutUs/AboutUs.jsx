@@ -1,12 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
+import  LazyLoad  from 'react-lazy-load';
+
 
 const AboutUs = () => {
     return (
         <div className='w-4/5 mx-auto '>
            <div className='flex my-20 items-center lg:flex-row flex-col'>
-           <div  className='basis-1/2'> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScEOTwjg3bE1CEsQNAgTmxqf78_TqppirE30vAILk3zBBu5yAwUTYnavj9jfQbyBtGr48&usqp=CAU" className='w-96  rounded-full' alt="" /></div>
+           <div  className='basis-1/2'> <LazyLoad ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScEOTwjg3bE1CEsQNAgTmxqf78_TqppirE30vAILk3zBBu5yAwUTYnavj9jfQbyBtGr48&usqp=CAU" className='w-96  rounded-full' alt="" /></LazyLoad></div>
             <div className='basis-1/2'>
                 <h1 className='text-4xl font-serif font-bold py-4'>Sound familar?If so ,this experience is for you</h1>
                 <p>- you are to busy to prepare media</p>
