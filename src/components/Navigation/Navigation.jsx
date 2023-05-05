@@ -14,8 +14,8 @@ const Navigation = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div>
-      <div className="navbar bg-base-400  font-serif py-3 shadow-lg flex justify-around items-center text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text ">
+    <div className="">
+      <div className="navbar bg-base-400   font-serif py-3 shadow-lg flex justify-around items-center text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text ">
         <div className=" logo">
           <Link to="/">
             {" "}

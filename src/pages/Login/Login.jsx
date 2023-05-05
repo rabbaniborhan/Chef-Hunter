@@ -7,7 +7,7 @@ import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 
 const Login = () => {
-  const {login,lo} = useContext(AuthContext)
+  const {login,loading} = useContext(AuthContext)
   const [email,setEmail]= useState("");
   const [password,setPassword]= useState("");
   const [error,setError] = useState("")
@@ -18,13 +18,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || '/';
-
-  
     const handleLogin = (event)=>{
          event.preventDefault();
-
-        
-
          if (!/(?=.*[0-9].*[0-9])/.test(password)) {
             setError('Please add at least two numbers');
             return
@@ -33,7 +28,6 @@ const Login = () => {
             setError('Please add at least 6 characters in your password')
             return;
         }
-       
          if(( email,password )){
           login(email,password)
           .then((result) => {
@@ -44,8 +38,6 @@ const Login = () => {
             setError(err.message);
             });
         }
-             
-
         inputEmailRef.current.value = '';
         inputPasswordRef.current.value='';
 
@@ -53,8 +45,11 @@ const Login = () => {
 
     return (
 
-          <div className='flex justify-center pb-24 bg-base-200 '>
-            
+          <div className='flex justify-center pb-24 bg-base-200 relative '>
+             {
+            loading && <div className='absolute left-1/2'><progress className="progress w-56 mx-auto progress-secondary"></progress><div className='mx-auto text- 
+             2xl font-bold'> Loading</div> </div>
+          }
           <div className="hero min-h-screen pl-56">
   <div className="hero-content flex-col ">
     <div className="text-center ">

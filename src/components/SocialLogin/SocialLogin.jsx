@@ -1,20 +1,25 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
 
 
     const {loading,googleLogin,Githublogin} = useContext(AuthContext)
+    const location = useLocation();
+  const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
+
 
 
     const handleGoogle =()=>{
         googleLogin()
         .then((result) => {
-          console.log(result.user);
+          navigate(from, { replace: true })
         })
         .catch((err) => {
-          console.log(err.message);
+         
         });
       }
 
@@ -22,10 +27,11 @@ const SocialLogin = () => {
       const handleGithub =()=>{
         Githublogin()
         .then((result) => {
-            console.log(result.user);
+          navigate(from, { replace: true })
+           
           })
           .catch((err) => {
-            console.log(err.message);
+           
           });
       }
     
